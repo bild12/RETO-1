@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reto Práctico - Plan de Modernización Tecnológica</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand-section">
+        <div class="brand-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+          FinanEU Moderniza
+        </div>
+        <div class="brand-subtitle">Plan de CTO / TI</div>
+      </div>
+      
+      <nav class="nav-links">
+        <li class="nav-item"><button class="nav-btn active" data-view="arquitectura"><span class="icon">🗺️</span> Arquitectura Map</button></li>
+        <li class="nav-item"><button class="nav-btn" data-view="priorizacion"><span class="icon">🎯</span> Priorización</button></li>
+        <li class="nav-item"><button class="nav-btn" data-view="patrones"><span class="icon">🏛️</span> Decisiones de Patrón</button></li>
+        <li class="nav-item"><button class="nav-btn" data-view="obsoletos"><span class="icon">🛠️</span> Solución Legados</button></li>
+        <li class="nav-item"><button class="nav-btn" data-view="equipo"><span class="icon">👥</span> Equipo y Presupuesto</button></li>
+        <li class="nav-item"><button class="nav-btn" data-view="roadmap"><span class="icon">📅</span> Roadmap & Gantt</button></li>
+      </nav>
+      
+      <div class="theme-toggle-container">
+        <button class="theme-toggle-btn" id="theme-toggle">
+          <span class="mode-icon">☀️</span> Modo Claro
+        </button>
+      </div>
+
+      <div class="user-badge">
+        <span class="user-name">Ivette Lopez</span>
+        <span class="user-role">Director de TI / CTO</span>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <header class="content-header">
+        <div class="title-area">
+          <h1 id="view-title">Mapa de Arquitectura (As-Is vs To-Be)</h1>
+          <p id="view-subtitle">Explora los diagramas técnicos e interactúa con los componentes para ver detalles del cambio.</p>
+        </div>
+      </header>
+
+      <!-- KPI Dashboard Header -->
+      <section class="kpi-container">
+        <div class="kpi-card">
+          <div class="kpi-label">Presupuesto</div>
+          <div class="kpi-value">USD $200K</div>
+          <div class="kpi-desc">Optimizado por fases</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Plazo Total</div>
+          <div class="kpi-value">18 Meses</div>
+          <div class="kpi-desc">Migración 100% Cloud</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Equipo Técnico</div>
+          <div class="kpi-value">8 FTEs</div>
+          <div class="kpi-desc">Balanceado Run / Change</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Riesgo Mitigado</div>
+          <div class="kpi-value">Crítico</div>
+          <div class="kpi-desc">Cumplimiento regulatorio</div>
+        </div>
+      </section>
+
+      <!-- VIEW: ARCHITECTURE MAP -->
+      <div class="view-panel active" id="view-arquitectura">
+        <div class="dashboard-card">
+          <div class="architecture-header">
+            <span class="card-title-main">📊 Diagrama Interactivo de Componentes</span>
+            <div class="map-switcher">
+              <button class="switch-btn active" id="btn-asis">Estado As-Is</button>
+              <button class="switch-btn" id="btn-tobe">Estado To-Be (Moderno)</button>
+            </div>
+          </div>
+
+          <div class="architecture-container">
+            <!-- Diagram Canvas -->
+            <div class="canvas-box">
+              <!-- AS IS DIAGRAM -->
+              <div class="architecture-svg-wrapper" id="svg-asis">
+                <svg width="100%" height="450" viewBox="0 0 650 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Capa 1: Canales -->
+                  <rect x="15" y="10" width="620" height="110" rx="8" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4 4" />
+                  <text x="30" y="30" fill="#9ca3af" font-size="10" font-weight="600" letter-spacing="1">CAPA 1: CANALES Y USUARIOS</text>
+                  
+                  <!-- CH-01 Asesores -->
+                  <g class="interactive-node" id="node-CH-01" style="cursor: pointer;">
+                    <rect x="40" y="45" width="220" height="60" rx="8" fill="rgba(22, 28, 45, 0.9)" stroke="#9ca3af" stroke-width="1.5" />
+                    <text x="55" y="68" fill="#f3f4f6" font-size="12" font-weight="600">CH-01: Asesores / Empleados</text>
+                    <text x="55" y="85" fill="#9ca3af" font-size="10">1,200 usuarios · Red LAN Interna</text>
+                    <rect x="210" y="52" width="42" height="14" rx="3" fill="rgba(255,255,255,0.05)" />
+                    <text x="214" y="62" fill="#9ca3af" font-size="8" font-weight="600">LAN</text>
+                  </g>
+
+                  <!-- CH-02 Asociados -->
+                  <g class="interactive-node" id="node-CH-02" style="cursor: pointer;">
+                    <rect x="390" y="45" width="220" height="60" rx="8" fill="rgba(22, 28, 45, 0.9)" stroke="#f59e0b" stroke-width="1.5" />
+                    <text x="405" y="68" fill="#f3f4f6" font-size="12" font-weight="600">CH-02: Asociados</text>
+                    <text x="405" y="85" fill="#9ca3af" font-size="10">85,000 usuarios · Canal Digital</text>
+                    <rect x="545" y="52" width="58" height="14" rx="3" fill="rgba(245,158,11,0.15)" />
+                    <text x="549" y="62" fill="#f59e0b" font-size="8" font-weight="600">ALTO RIESGO</text>
+                  </g>
+
+                  <!-- Capa 2: Aplicaciones de Canal -->
+                  <!-- APP-02 CRM -->
+                  <g class="interactive-node" id="node-APP-02" style="cursor: pointer;">
+                    <rect x="40" y="160" width="220" height="60" rx="8" fill="rgba(22, 28, 45, 0.9)" stroke="#f59e0b" stroke-width="1.5" />
+                    <text x="55" y="183" fill="#f3f4f6" font-size="12" font-weight="600">APP-02: CRM On-Premise</text>
+                    <text x="55" y="200" fill="#9ca3af" font-size="10">Campañas e Historial Comercial</text>
+                    <rect x="195" y="167" width="58" height="14" rx="3" fill="rgba(245,158,11,0.15)" />
+                    <text x="199" y="177" fill="#f59e0b" font-size="8" font-weight="600">ALTO RIESGO</text>
+                  </g>
+
+                  <!-- APP-01 Portal Web -->
+                  <g class="interactive-node" id="node-APP-01" style="cursor: pointer;">
+                    <rect x="390" y="160" width="220" height="60" rx="8" fill="rgba(22, 28, 45, 0.9)" stroke="#ef4444" stroke-width="1.5" />
+                    <text x="405" y="183" fill="#f3f4f6" font-size="12" font-weight="600">APP-01: Portal Web (PHP 5.6)</text>
+                    <text x="405" y="200" fill="#9ca3af" font-size="10">Consultas y Solicitudes crédito</text>
+                    <rect x="548" y="167" width="55" height="14" rx="3" fill="rgba(239,68,68,0.15)" />
+                    <text x="552" y="177" fill="#ef4444" font-size="8" font-weight="600">CRÍTICO</text>
+                  </g>
+
+                  <!-- Capa 3: Datacenter Propio -->
+                  <rect x="15" y="250" width="620" height="190" rx="8" fill="rgba(239, 68, 68, 0.01)" stroke="rgba(239, 68, 68, 0.08)" stroke-dasharray="4 4" />
+                  <text x="30" y="270" fill="#ef4444" font-size="10" font-weight="600" letter-spacing="1">CAPA 2: DATACENTER FÍSICO (DEUDA CRÍTICA)</text>
+                  
+                  <!-- CORE-01 CORE -->
+                  <g class="interactive-node" id="node-CORE-01" style="cursor: pointer;">
+                    <rect x="40" y="290" width="220" height="60" rx="8" fill="rgba(22, 28, 45, 0.9)" stroke="#ef4444" stroke-width="1.5" />
+                    <text x="55" y="313" fill="#f3f4f6" font-size="12" font-weight="600">CORE-01: CORE SistemaCoop</text>
+                    <text x="55" y="330" fill="#9ca3af" font-size="10">SQL Server 2008 · Servidor Físico</text>
+                    <rect x="198" y="297" width="55" height="14" rx="3" fill="rgba(239,68,68,0.15)" />
+                    <text x="202" y="307" fill="#ef4444" font-size="8" font-weight="600">CRÍTICO</text>
+                  </g>
+
+                  <!-- APP-03 NominaSoft -->
+                  <g class="interactive-node" id="node-APP-03" style="cursor: pointer;">
+                    <rect x="390" y="290" width="220" height="60" rx="8" fill="rgba(22, 28, 45, 0.9)" stroke="#ef4444" stroke-width="1.5" />
+                    <text x="405" y="313" fill="#f3f4f6" font-size="12" font-weight="600">APP-03: NominaSoft (WS 2008)</text>
+                    <text x="405" y="330" fill="#9ca3af" font-size="10">Liquidación 1,200 empleados</text>
+                    <rect x="548" y="297" width="55" height="14" rx="3" fill="rgba(239,68,68,0.15)" />
+                    <text x="552" y="307" fill="#ef4444" font-size="8" font-weight="600">CRÍTICO</text>
+                  </g>
+
+                  <!-- NET-01 Red -->
+                  <g class="interactive-node" id="node-NET-01" style="cursor: pointer;">
+                    <rect x="40" y="365" width="220" height="60" rx="8" fill="rgba(22, 28, 45, 0.9)" stroke="#ef4444" stroke-width="1.5" />
+                    <text x="55" y="388" fill="#f3f4f6" font-size="12" font-weight="600">NET-01: Switches & Red Cisco</text>
+                    <text x="55" y="405" fill="#9ca3af" font-size="10">Switches EoS · Canal de Internet único</text>
+                    <rect x="198" y="372" width="55" height="14" rx="3" fill="rgba(239,68,68,0.15)" />
+                    <text x="202" y="382" fill="#ef4444" font-size="8" font-weight="600">CRÍTICO</text>
+                  </g>
+
+                  <!-- DAT-01 Reportes Excel -->
+                  <g class="interactive-node" id="node-DAT-01" style="cursor: pointer;">
+                    <rect x="390" y="365" width="220" height="60" rx="8" fill="rgba(22, 28, 45, 0.9)" stroke="#f59e0b" stroke-width="1.5" />
+                    <text x="405" y="388" fill="#f3f4f6" font-size="12" font-weight="600">DAT-01: Reportería Excel</text>
+                    <text x="405" y="405" fill="#9ca3af" font-size="10">Macros y ODBC directo a Producción</text>
+                    <rect x="545" y="372" width="58" height="14" rx="3" fill="rgba(245,158,11,0.15)" />
+                    <text x="549" y="382" fill="#f59e0b" font-size="8" font-weight="600">ALTO RIESGO</text>
+                  </g>
+
+                  <!-- Enlaces e Integraciones -->
+                  <!-- CH-01 to APP-02 (CRM) -->
+                  <path d="M150 105 L150 160" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3 3" />
+                  <!-- CH-02 to APP-01 (Portal) -->
+                  <path d="M500 105 L500 160" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3 3" />
+                  
+                  <!-- APP-02 to CORE-01 (Manual) -->
+                  <path d="M150 220 L150 290" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 4" />
+                  <rect x="100" y="243" width="100" height="16" rx="3" fill="#ef4444" />
+                  <text x="105" y="254" fill="white" font-size="8" font-weight="600">DIGITACIÓN MANUAL</text>
+
+                  <!-- APP-01 to CORE-01 (Direct queries) -->
+                  <path d="M500 220 L260 320" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 4" />
+                  <rect x="310" y="240" width="130" height="16" rx="3" fill="#ef4444" />
+                  <text x="315" y="251" fill="white" font-size="8" font-weight="600">QUERY DIRECTO A PROD</text>
+
+                  <!-- CORE-01 to DAT-01 (Macros Direct) -->
+                  <path d="M260 340 L390 380" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3 3" />
+                  <!-- APP-03 to CORE-01 (Archivos planos) -->
+                  <path d="M500 350 L260 330" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3 3" />
+                </svg>
+              </div>
+
+              <!-- TO BE DIAGRAM -->
+              <div class="architecture-svg-wrapper" id="svg-tobe" style="display: none;">
+                <svg width="100%" height="450" viewBox="0 0 650 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Capa 1: Canales -->
+                  <rect x="15" y="10" width="620" height="90" rx="8" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4 4" />
+                  <text x="30" y="25" fill="#9ca3af" font-size="10" font-weight="600" letter-spacing="1">CAPA 1: CANALES Y USUARIOS</text>
+                  
+                  <!-- CH-01 Asesores -->
+                  <g class="interactive-node" id="node-CH-01-tb" style="cursor: pointer;">
+                    <rect x="40" y="35" width="220" height="50" rx="8" fill="rgba(22, 28, 45, 0.9)" stroke="#10b981" stroke-width="1.5" />
+                    <text x="55" y="55" fill="#f3f4f6" font-size="11" font-weight="600">CH-01: Asesores / Empleados</text>
+                    <text x="55" y="70" fill="#9ca3af" font-size="9">1,200 usuarios · VPN / Acceso Seguro</text>
+                    <rect x="215" y="42" width="38" height="12" rx="3" fill="rgba(16,185,129,0.15)" />
+                    <text x="219" y="50" fill="#10b981" font-size="7" font-weight="600">SEGURO</text>
+                  </g>
+
+                  <!-- CH-02 Asociados -->
+                  <g class="interactive-node" id="node-CH-02-tb" style="cursor: pointer;">
+                    <rect x="390" y="35" width="220" height="50" rx="8" fill="rgba(22, 28, 45, 0.9)" stroke="#10b981" stroke-width="1.5" />
+                    <text x="405" y="55" fill="#f3f4f6" font-size="11" font-weight="600">CH-02: Asociados</text>
+                    <text x="405" y="70" fill="#9ca3af" font-size="9">85,000 usuarios · Canal Seguro</text>
+                    <rect x="565" y="42" width="38" height="12" rx="3" fill="rgba(16,185,129,0.15)" />
+                    <text x="569" y="50" fill="#10b981" font-size="7" font-weight="600">ESTABLE</text>
+                  </g>
+
+                  <!-- Capa 2: Canales Digitales -->
+                  <text x="30" y="125" fill="#9ca3af" font-size="10" font-weight="600" letter-spacing="1">CAPA 2: APLICACIONES CLOUD-NATIVE & PORTALES</text>
+                  <!-- APP-02 CRM -->
+                  <g class="interactive-node" id="node-APP-02-tb" style="cursor: pointer;">
+                    <rect x="40" y="140" width="180" height="50" rx="8" fill="rgba(22, 28, 45, 0.9)" stroke="#10b981" stroke-width="1.5" />
+                    <text x="50" y="160" fill="#f3f4f6" font-size="10" font-weight="600">APP-02: CRM Comercial</text>
+                    <text x="50" y="175" fill="#9ca3af" font-size="8">Sincronización via API integrada</text>
+                    <rect x="180" y="145" width="32" height="12" rx="3" fill="rgba(16,185,129,0.15)" />
+                    <text x="184" y="153" fill="#10b981" font-size="7" font-weight="600">API</text>
+                  </g>
+
+                  <!-- APP-01 Portal Web (Serverless) -->
+                  <g class="interactive-node" id="node-APP-01-tb" style="cursor: pointer;">
+                    <rect x="235" y="140" width="180" height="50" rx="8" fill="rgba(22, 28, 45, 0.9)" stroke="#10b981" stroke-width="1.5" />
+                    <text x="245" y="160" fill="#f3f4f6" font-size="10" font-weight="600">APP-01: Portal Web (Serverless)</text>
+                    <text x="245" y="175" fill="#9ca3af" font-size="8">Reconstruido elástico e ininterrumpido</text>
+                  </g>
+
+                  <!-- APP-04 App Movil -->
+                  <g class="interactive-node" id="node-APP-04-tb" style="cursor: pointer;">
+                    <rect x="430" y="140" width="180" height="50" rx="8" fill="rgba(22, 28, 45, 0.9)" stroke="#10b981" stroke-width="1.5" />
+                    <text x="440" y="160" fill="#f3f4f6" font-size="10" font-weight="600">APP-04: App Móvil (MVP)</text>
+                    <text x="440" y="175" fill="#9ca3af" font-size="8">Orientado a asociados jóvenes</text>
+                    <rect x="560" y="145" width="42" height="12" rx="3" fill="rgba(99,102,241,0.15)" />
+                    <text x="564" y="153" fill="#6366f1" font-size="7" font-weight="600">NUEVO</text>
+                  </g>
+
+                  <!-- Capa de Integracion (API Gateway) -->
+                  <!-- API-01 API Gateway -->
+                  <g class="interactive-node" id="node-API-01-tb" style="cursor: pointer;">
+                    <rect x="210" y="225" width="230" height="45" rx="8" fill="rgba(99,102,241,0.1)" stroke="#6366f1" stroke-width="1.5" />
+                    <text x="250" y="245" fill="#f3f4f6" font-size="11" font-weight="700">API-01: API Gateway (Seguridad)</text>
+                    <text x="250" y="258" fill="#a5b4fc" font-size="8">Control de tráfico, JWT y Caching</text>
+                  </g>
+
+                  <!-- Capa 3: Datacenter Cloud Administrado -->
+                  <rect x="15" y="295" width="620" height="145" rx="8" fill="rgba(16, 185, 129, 0.02)" stroke="rgba(16, 185, 129, 0.1)" stroke-dasharray="4 4" />
+                  <text x="30" y="312" fill="#10b981" font-size="10" font-weight="600" letter-spacing="1">CAPA 3: NUBE ADMINISTRADA (COMPLIANCE REGULATORIO)</text>
+                  
+                  <!-- CORE-01 CORE -->
+                  <g class="interactive-node" id="node-CORE-01-tb" style="cursor: pointer;">
+                    <rect x="40" y="330" width="220" height="50" rx="8" fill="rgba(22, 28, 45, 0.9)" stroke="#10b981" stroke-width="1.5" />
+                    <text x="50" y="350" fill="#f3f4f6" font-size="11" font-weight="600">CORE-01: CORE (Monolito Mod.)</text>
+                    <text x="50" y="365" fill="#9ca3af" font-size="8">SQL Server Nube Administrada compatible</text>
+                  </g>
+
+                  <!-- SaaS-01 Nomina -->
+                  <g class="interactive-node" id="node-SaaS-01-tb" style="cursor: pointer;">
+                    <rect x="390" y="330" width="220" height="50" rx="8" fill="rgba(22, 28, 45, 0.9)" stroke="#10b981" stroke-width="1.5" />
+                    <text x="405" y="350" fill="#f3f4f6" font-size="11" font-weight="600">SaaS-01: Nómina SaaS Cloud</text>
+                    <text x="405" y="365" fill="#9ca3af" font-size="8">Sustituye APP-03 NominaSoft</text>
+                    <rect x="560" y="335" width="42" height="12" rx="3" fill="rgba(16,185,129,0.15)" />
+                    <text x="564" y="343" fill="#10b981" font-size="7" font-weight="600">SaaS</text>
+                  </g>
+
+                  <!-- NET-01 Red SD-WAN -->
+                  <g class="interactive-node" id="node-NET-01-tb" style="cursor: pointer;">
+                    <rect x="40" y="390" width="220" height="40" rx="8" fill="rgba(22, 28, 45, 0.9)" stroke="#10b981" stroke-width="1.5" />
+                    <text x="50" y="408" fill="#f3f4f6" font-size="10" font-weight="600">NET-01: SD-WAN Redundancia</text>
+                    <text x="50" y="420" fill="#9ca3af" font-size="8">Canal dual redundante y switches Cisco al día</text>
+                  </g>
+
+                  <!-- DAT-02 BI & DWH -->
+                  <g class="interactive-node" id="node-DAT-02-tb" style="cursor: pointer;">
+                    <rect x="390" y="390" width="220" height="40" rx="8" fill="rgba(22, 28, 45, 0.9)" stroke="#10b981" stroke-width="1.5" />
+                    <text x="405" y="408" fill="#f3f4f6" font-size="10" font-weight="600">DAT-02: Data Warehouse & BI</text>
+                    <text x="405" y="420" fill="#9ca3af" font-size="8">Elimina macros directas a producción</text>
+                  </g>
+
+                  <!-- Enlaces Modernos -->
+                  <path d="M150 85 L150 140" stroke="#10b981" stroke-width="1.5" />
+                  <path d="M500 85 L500 140" stroke="#10b981" stroke-width="1.5" />
+                  <path d="M325 85 L325 140" stroke="#10b981" stroke-width="1.5" />
+
+                  <!-- Channels to API Gateway -->
+                  <path d="M130 190 L230 225" stroke="#10b981" stroke-width="1.5" />
+                  <path d="M325 190 L325 225" stroke="#10b981" stroke-width="1.5" />
+                  <path d="M520 190 L420 225" stroke="#10b981" stroke-width="1.5" />
+
+                  <!-- API Gateway to CORE -->
+                  <path d="M325 270 L150 330" stroke="#10b981" stroke-width="1.5" />
+                  <!-- CORE to DWH Read Replica -->
+                  <path d="M260 355 L390 410" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 3" />
+                  <!-- SaaS to API Gateway for accounting -->
+                  <path d="M390 355 L325 270" stroke="#10b981" stroke-width="1.2" stroke-dasharray="3 3" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Detail Sidebar -->
+            <div class="details-panel">
+              <!-- Empty state -->
+              <div class="detail-card-empty" id="detail-empty">
+                <div>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:0.5rem; opacity:0.5;">
+                    <circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>
+                  </svg>
+                  <p>Haz clic en cualquier componente para ver su análisis de modernización, riesgos y solución.</p>
+                </div>
+              </div>
+
+              <!-- Content details cards loaded dynamically by JS -->
+              <div class="detail-card-content" id="detail-card">
+                <div class="detail-badge-row">
+                  <span class="component-id-badge" id="det-id">CORE-01</span>
+                  <span class="status-badge critical" id="det-status">CRÍTICO</span>
+                </div>
+                <h3 class="detail-title" id="det-name">CORE Financiero - SistemaCoop</h3>
+                <p class="detail-text" id="det-desc">SQL Server 2008 en servidor dedicado local. Sin parches desde 2021.</p>
+                
+                <h4 class="detail-section-title">Riesgo en Arquitectura As-Is</h4>
+                <ul class="detail-list" id="det-risks">
+                  <li>Vulnerabilidades de ciberseguridad sin parches desde 2021.</li>
+                  <li>Proveedor extinto de la cooperativa.</li>
+                </ul>
+
+                <h4 class="detail-section-title">Plan de Modernización To-Be</h4>
+                <ul class="detail-list" id="det-solution">
+                  <li>Migración a la nube y desacoplamiento vía API Gateway.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW: PRIORITIZATION -->
+      <div class="view-panel" id="view-priorizacion">
+        <div class="dashboard-card">
+          <span class="card-title-main">🎯 Matriz de Priorización de Proyectos</span>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Focalización estratégica para garantizar el cumplimiento regulatorio antes de diciembre y maximizar el presupuesto de USD $200K.</p>
+          
+          <div class="prioritization-matrix">
+            <!-- Q1: Critical -->
+            <div class="matrix-quadrant" style="border-left: 4px solid var(--color-critical);">
+              <div class="quadrant-header">
+                <span class="quadrant-title" style="color: var(--color-critical);">🚨 1. Estabilización y Regulación</span>
+                <span class="quadrant-order">Meses 0 - 6</span>
+              </div>
+              <div class="quadrant-body">
+                <p>Mitigación inminente de riesgos de disponibilidad y seguridad exigidos por el regulador financiero antes del plazo límite de diciembre.</p>
+                <div class="quadrant-items">
+                  <div class="quadrant-item-tag">NET-01 Redundancia WAN <span class="status-badge critical">Crítico</span></div>
+                  <div class="quadrant-item-tag">CORE-01 Cloud Migration (Rehost) <span class="status-badge critical">Crítico</span></div>
+                  <div class="quadrant-item-tag">SaaS-01 Nómina (Reemplazo APP-03) <span class="status-badge critical">Crítico</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q2: High value -->
+            <div class="matrix-quadrant" style="border-left: 4px solid var(--color-risk);">
+              <div class="quadrant-header">
+                <span class="quadrant-title" style="color: var(--color-risk);">📈 2. Crecimiento y Canales</span>
+                <span class="quadrant-order">Meses 6 - 12</span>
+              </div>
+              <div class="quadrant-body">
+                <p>Apertura a nuevos segmentos y solución a la tasa de abandono del 35% del portal web transaccional mediante APIs.</p>
+                <div class="quadrant-items">
+                  <div class="quadrant-item-tag">APP-01 Portal Web Serverless <span class="status-badge risk">Alto Riesgo</span></div>
+                  <div class="quadrant-item-tag">APP-04 App Móvil MVP <span class="status-badge stable" style="background:rgba(99,102,241,0.1);color:#6366f1;">Nuevo</span></div>
+                  <div class="quadrant-item-tag">Integración CRM APP-02 <span class="status-badge risk">Alto Riesgo</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q3: Optimization -->
+            <div class="matrix-quadrant" style="border-left: 4px solid var(--color-stable);">
+              <div class="quadrant-header">
+                <span class="quadrant-title" style="color: var(--color-stable);">⚙️ 3. Eficiencia Operativa</span>
+                <span class="quadrant-order">Meses 12 - 18</span>
+              </div>
+              <div class="quadrant-body">
+                <p>Reemplazo de procesos manuales ineficientes (macros que tardan 3 días) y apagado del datacenter físico propio.</p>
+                <div class="quadrant-items">
+                  <div class="quadrant-item-tag">DAT-02 BI & Data Warehouse <span class="status-badge risk">Alto Riesgo</span></div>
+                  <div class="quadrant-item-tag">Cierre Datacenter Físico <span class="status-badge stable">Estable</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW: DECISIONS -->
+      <div class="view-panel" id="view-patrones">
+        <div class="dashboard-card">
+          <span class="card-title-main">🏛️ Decisiones de Patrón Arquitectónico</span>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem;">Justificación técnica de la selección de patrones frente a las restricciones operativas de la cooperativa.</p>
+          
+          <div class="decisions-grid">
+            <div class="decision-card">
+              <h3 class="decision-card-title">🧱 Monolito Modular (CORE-01)</h3>
+              <p style="font-size:0.85rem; color: var(--text-secondary); margin-bottom:1rem;">
+                Propuesto para el núcleo financiero de la cooperativa en la nube administrada.
+              </p>
+              <div class="comparison-box">
+                <div class="comp-panel">
+                  <div class="comp-header">Por qué sí</div>
+                  <ul class="comp-list">
+                    <li>Reduce el overhead de red.</li>
+                    <li>Soporta transacciones inmediatas.</li>
+                    <li>Operado fácilmente por 2 devs y 1 DBA.</li>
+                  </ul>
+                </div>
+                <div class="comp-panel" style="border-color: rgba(239, 68, 68, 0.15);">
+                  <div class="comp-header" style="color: var(--color-critical);">Por qué no Microservicios</div>
+                  <ul class="comp-list">
+                    <li>Requiere alta orquestación.</li>
+                    <li>Costo de desarrollo excesivo.</li>
+                    <li>Excedería el equipo de 8 personas.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="decision-card">
+              <h3 class="decision-card-title">⚡ Serverless / Cloud-Native (Canales)</h3>
+              <p style="font-size:0.85rem; color: var(--text-secondary); margin-bottom:1rem;">
+                Propuesto para el Portal Web (APP-01) y la App Móvil (APP-04).
+              </p>
+              <div class="comparison-box">
+                <div class="comp-panel">
+                  <div class="comp-header">Por qué sí</div>
+                  <ul class="comp-list">
+                    <li>Escalado automático en quincena.</li>
+                    <li>Costo basado en consumo exacto.</li>
+                    <li>Cero mantenimiento de servidores.</li>
+                  </ul>
+                </div>
+                <div class="comp-panel">
+                  <div class="comp-header">Impacto de Negocio</div>
+                  <ul class="comp-list">
+                    <li>Elimina el 35% de abandono.</li>
+                    <li>Rápida velocidad de carga.</li>
+                    <li>Despliegues continuos sin fricción.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW: LEGACIES -->
+      <div class="view-panel" id="view-obsoletos">
+        <div class="dashboard-card">
+          <span class="card-title-main">🛠️ Resolución de Sistemas Heredados e Integraciones</span>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Detalle de la transición segura de los sistemas críticos sin soporte y desmantelamiento de integraciones de alto riesgo.</p>
+
+          <div class="integrations-table-wrapper">
+            <table class="table-custom">
+              <thead>
+                <tr>
+                  <th>Origen (As-Is)</th>
+                  <th>Destino</th>
+                  <th>Riesgo As-Is</th>
+                  <th>Estrategia de Modernización (To-Be)</th>
+                  <th>Impacto de Negocio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="code-cell">APP-02 CRM</span></td>
+                  <td><span class="code-cell">CORE-01</span></td>
+                  <td><span class="status-badge critical">Crítico</span> (Digitación manual)</td>
+                  <td>Integración vía HTTPS a través del API Gateway (<span class="code-cell">API-01</span>).</td>
+                  <td>Elimina la doble digitación de datos y errores humanos de asesores.</td>
+                </tr>
+                <tr>
+                  <td><span class="code-cell">APP-01 Portal</span></td>
+                  <td><span class="code-cell">CORE-01</span></td>
+                  <td><span class="status-badge critical">Crítico</span> (Query directo BD)</td>
+                  <td>Reconstrucción en serverless desacoplado consumiendo APIs de <span class="code-cell">API-01</span>.</td>
+                  <td>Aísla la base de datos de producción y detiene las caídas del portal.</td>
+                </tr>
+                <tr>
+                  <td><span class="code-cell">CORE-01 DB</span></td>
+                  <td><span class="code-cell">DAT-01 Excel</span></td>
+                  <td><span class="status-badge risk">Alto Riesgo</span> (Locks en BD)</td>
+                  <td>Redireccionamiento de macros a una Read Replica y migración a <span class="code-cell">DAT-02 BI</span>.</td>
+                  <td>Evita la degradación de producción y automatiza reportes gerenciales.</td>
+                </tr>
+                <tr>
+                  <td><span class="code-cell">APP-03 Nómina</span></td>
+                  <td><span class="code-cell">CORE-01</span></td>
+                  <td><span class="status-badge critical">Crítico</span> (OS sin parches)</td>
+                  <td>Reemplazo completo por un SaaS de nómina en la nube (<span class="code-cell">SaaS-01</span>).</td>
+                  <td>Elimina costos de servidores heredados y mitiga dependencia operativa.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW: TEAM -->
+      <div class="view-panel" id="view-equipo">
+        <div class="dashboard-card">
+          <span class="card-title-main">👥 Distribución Operativa (Run vs Change)</span>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem;">Cómo se balancea la operación diaria de FinanEU con los proyectos de modernización tecnológica sin sobrecargar al equipo de 8 personas.</p>
+          
+          <div class="team-grid">
+            <!-- Card Soporte -->
+            <div class="team-card">
+              <div class="team-header">
+                <span class="team-role-title">📞 Soporte Técnico</span>
+                <span class="team-count">3 FTEs</span>
+              </div>
+              <p style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:1rem;">Dedicados 100% al mantenimiento diario, incidencias y soporte al cliente interno.</p>
+              <div class="allocation-bar-wrapper">
+                <div class="allocation-bar-labels"><span>Operación (Run): 100%</span> <span>0%</span></div>
+                <div class="allocation-bar-outer"><div class="allocation-bar-run" style="width: 100%;"></div></div>
+              </div>
+            </div>
+
+            <!-- Card Desarrolladores -->
+            <div class="team-card">
+              <div class="team-header">
+                <span class="team-role-title">💻 Desarrolladores</span>
+                <span class="team-count">2 FTEs</span>
+              </div>
+              <p style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:1rem;">Focalizados en el desarrollo de APIs, integraciones y portales web/móvil.</p>
+              <div class="allocation-bar-wrapper">
+                <div class="allocation-bar-labels"><span>Run: 20%</span> <span>Change: 80%</span></div>
+                <div class="allocation-bar-outer"><div class="allocation-bar-run" style="width: 20%;"></div><div class="allocation-bar-change" style="width: 80%;"></div></div>
+              </div>
+            </div>
+
+            <!-- Card DBA & Infra -->
+            <div class="team-card">
+              <div class="team-header">
+                <span class="team-role-title">⚙️ DBA & Infraestructura</span>
+                <span class="team-count">2 FTEs</span>
+              </div>
+              <p style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:1rem;">Soporte de servidores heredados y co-diseño de la Landing Zone Cloud.</p>
+              <div class="allocation-bar-wrapper">
+                <div class="allocation-bar-labels"><span>Run: 50%</span> <span>Change: 50%</span></div>
+                <div class="allocation-bar-outer"><div class="allocation-bar-run" style="width: 50%;"></div><div class="allocation-bar-change" style="width: 50%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comp-panel" style="margin-top: 2rem; background: rgba(99,102,241,0.03); border-color: rgba(99,102,241,0.15);">
+            <h4 style="font-size:0.95rem; font-weight:600; color:var(--text-primary); margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;">
+              🤝 Mitigación con Partner Tecnológico Externo (MSP)
+            </h4>
+            <p style="font-size:0.8rem; color:var(--text-secondary);">
+              Para evitar el desgaste y asegurar el éxito regulatorio, se destinan **USD $40,000** del presupuesto de la Fase 1 a la contratación de un proveedor externo de servicios administrados en la nube. El partner se encargará de la migración de bases de datos, redes de conexión y Landing Zone, permitiendo a nuestro equipo interno supervisar y focalizarse en integraciones del negocio.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW: ROADMAP & GANTT -->
+      <div class="view-panel" id="view-roadmap">
+        <div class="dashboard-card">
+          <span class="card-title-main">📅 Hojas de Ruta y Diagrama de Gantt</span>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem;">Cronograma estratégico estructurado en fases para un control óptimo de las inversiones y dependencias de despliegue.</p>
+          
+          <div class="gantt-chart-custom">
+            <!-- Months headers -->
+            <div class="gantt-header-months">
+              <div class="gantt-header-label">PROYECTO / HITO</div>
+              <div class="gantt-header-label">M 1-3</div>
+              <div class="gantt-header-label">M 4-6</div>
+              <div class="gantt-header-label">M 7-9</div>
+              <div class="gantt-header-label">M 10-12</div>
+              <div class="gantt-header-label">M 13-15</div>
+              <div class="gantt-header-label">M 16-18</div>
+            </div>
+
+            <!-- NET-01 Redundancia -->
+            <div class="gantt-row">
+              <span class="gantt-row-label">Redundancia NET-01</span>
+              <div class="gantt-bar-cell">
+                <div class="gantt-bar fase1" style="width: 33%; left: 0%;">F1: Red & Switches</div>
+              </div>
+            </div>
+
+            <!-- CORE-01 DB Cloud -->
+            <div class="gantt-row">
+              <span class="gantt-row-label">Migración CORE-01</span>
+              <div class="gantt-bar-cell">
+                <div class="gantt-bar fase1" style="width: 50%; left: 0%;">F1: BD Cloud</div>
+              </div>
+            </div>
+
+            <!-- API-01 Gateway -->
+            <div class="gantt-row">
+              <span class="gantt-row-label">API-01 Gateway</span>
+              <div class="gantt-bar-cell">
+                <div class="gantt-bar fase1" style="width: 33%; left: 33%;">F1: APIs & Desacople</div>
+              </div>
+            </div>
+
+            <!-- SaaS-01 Nomina -->
+            <div class="gantt-row">
+              <span class="gantt-row-label">Nómina SaaS-01</span>
+              <div class="gantt-bar-cell">
+                <div class="gantt-bar fase1" style="width: 50%; left: 16%;">F1: Reemplazo Nómina</div>
+              </div>
+            </div>
+
+            <!-- APP-01 Portal -->
+            <div class="gantt-row">
+              <span class="gantt-row-label">Portal APP-01</span>
+              <div class="gantt-bar-cell">
+                <div class="gantt-bar fase2" style="width: 33%; left: 50%;">F2: Web Serverless</div>
+              </div>
+            </div>
+
+            <!-- APP-04 App Movil -->
+            <div class="gantt-row">
+              <span class="gantt-row-label">App Móvil APP-04</span>
+              <div class="gantt-bar-cell">
+                <div class="gantt-bar fase2" style="width: 33%; left: 66%;">F2: App MVP</div>
+              </div>
+            </div>
+
+            <!-- APP-02 CRM API -->
+            <div class="gantt-row">
+              <span class="gantt-row-label">Integración CRM</span>
+              <div class="gantt-bar-cell">
+                <div class="gantt-bar fase2" style="width: 33%; left: 50%;">F2: CRM API Sync</div>
+              </div>
+            </div>
+
+            <!-- DAT-02 BI & DWH -->
+            <div class="gantt-row">
+              <span class="gantt-row-label">Analítica DAT-02</span>
+              <div class="gantt-bar-cell">
+                <div class="gantt-bar fase3" style="width: 33%; left: 66%;">F3: DWH & BI</div>
+              </div>
+            </div>
+
+            <!-- Decommissioning Datacenter -->
+            <div class="gantt-row">
+              <span class="gantt-row-label">Cierre Datacenter</span>
+              <div class="gantt-bar-cell">
+                <div class="gantt-bar fase3" style="width: 17%; left: 83%;">F3: Apagado Físico</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
