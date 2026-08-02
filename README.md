@@ -14,36 +14,4 @@ El plan estratégico está diseñado bajo las siguientes restricciones de negoci
 * 👥 **Equipo de TI Disponible:** 8 personas (1 Director de TI, 2 Desarrolladores, 1 DBA, 1 Especialista en Infraestructura, 3 Soporte).
 * ⏳ **Plazo Límite de la Directiva:** 18 meses para migración total a la nube.
 
----
 
-## 🗂️ Contenido de este Repositorio
-
-El repositorio está estructurado con los siguientes archivos clave:
-
-1. 📓 **[README.md](file:///c:/Users/bild1/OneDrive/Documentos/Learning/CTO/Tarea/Reto%201/README.md):** (Este archivo) Documentación de presentación general del proyecto.
-2. 🗺️ **[mapa-arquitectura-as-is.pdf](file:///c:/Users/bild1/OneDrive/Documentos/Learning/CTO/Tarea/Reto%201/mapa-arquitectura-as-is.pdf):** Representación gráfica de la arquitectura inicial (As-Is). Detalla las aplicaciones de canal, el CORE financiero, la red y la reportería en producción mediante macros, clasificando la severidad de los riesgos en crítico, alto riesgo y estable.
-3. 📝 **[RoadmapModernización.md](file:///c:/Users/bild1/OneDrive/Documentos/Learning/CTO/Tarea/Reto%201/RoadmapModernizaci%C3%B3n.md):** El entregable estratégico completo de la modernización (Entregable 4), el cual responde a las siguientes preguntas críticas:
-   * **¿Qué se moderniza primero y por qué?** Criterio de priorización basado en riesgo regulatorio (cyberseguridad y disponibilidad antes de diciembre) vs. valor de negocio.
-   * **Patrón Arquitectónico Propuesto:** Justificación del enfoque híbrido (**Monolito Modular** para el CORE `CORE-01` y **Serverless/Cloud-Native** para canales `APP-01` y `APP-04`).
-   * **Sistemas sin Soporte:** Estrategias específicas de migración para el CORE (`CORE-01`) mediante rehosting y desacoplamiento con *API Gateway* (`API-01`), y reemplazo total de la nómina (`APP-03`) mediante un software SaaS en la nube (`SaaS-01`).
-   * **Balance Operativo (Run vs. Change):** Estructuración de dedicación del equipo y asignación de presupuesto (USD $40K) para apoyo de un *Partner de Nube externo (MSP)*.
-   * **Plan de Fases a 18 Meses:** Cronograma detallado en fases y diagrama de Gantt en formato **Mermaid**.
-
----
-
-## ⚙️ Cómo subir este repositorio a GitHub
-
-Para publicar esta entrega en tu cuenta de GitHub, sigue estos sencillos pasos:
-
-1. **Crea el repositorio en tu GitHub:**
-   * Abre tu navegador e ingresa directamente a: [github.com/new](https://github.com/new)
-   * En **Repository name**, escribe exactamente: `Reto-1`
-   * Asegúrate de seleccionar **Public** (Público).
-   * **No** marques las opciones de agregar un README, `.gitignore` o licencia (ya que ya existen localmente).
-   * Haz clic abajo en el botón verde **Create repository**.
-
-2. **Sube tu código local:**
-   * Dado que ya he configurado el enlace remoto en tu Git local, solo debes ejecutar el comando para subir los archivos (o pedirme que lo haga):
-   ```bash
-   git push -u origin main
-   ```
