@@ -27,3 +27,4 @@ El repositorio está estructurado con los siguientes archivos clave:
    * **Sistemas sin Soporte:** Estrategias específicas de migración para el CORE (`CORE-01`) mediante rehosting y desacoplamiento con *API Gateway* (`API-01`), y reemplazo total de la nómina (`APP-03`) mediante un software SaaS en la nube (`SaaS-01`).
    * **Balance Operativo (Run vs. Change):** Estructuración de dedicación del equipo y asignación de presupuesto (USD $40K) para apoyo de un *Partner de Nube externo (MSP)*.
    * **Plan de Fases a 18 Meses:** Cronograma detallado en fases y diagrama de Gantt en formato **Mermaid**.
+
